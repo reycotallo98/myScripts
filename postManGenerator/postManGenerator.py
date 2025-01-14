@@ -49,9 +49,12 @@ def generate_postman_collection(input_file, output_file):
     
     print(f"Archivo Postman generado en: {output_file}")
 
-# Rutas de entrada y salida
-input_file = "result.txt"  # Ruta del archivo de entrada proporcionado
-output_file = "postman_collection.json"  # Ruta del archivo de salida
-
-# Ejecutar la generación
-generate_postman_collection(input_file, output_file)
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Uso: python script.py <ruta_del_fichero_entrada> <ruta_del_fichero_salida>")
+        sys.exit(1)
+    
+    input_file = sys.argv[1]
+    output_file = sys.argv[2]
+    
+    generate_postman_collection(input_file, output_file)
